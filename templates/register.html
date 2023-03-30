@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>
+	register page
+</h1>
+
+<form method="post">
+	<input type="text" name="reg_email" id="reg_email" placeholder="Email" /><br>
+		<span id="reg_email_note"></span><br>
+	<input type="password" name="reg_pass_one" id="reg_pass_one" placeholder="Password" /><br>
+	<input type="password" name="reg_pass_two" id="reg_pass_two" placeholder="Repeat Password" /><br>
+		<span id="reg_pass_two_note"></span><br>
+	<button id="reg_btn">Register</button>
+</form>
+
+<span id="all_reg_note"></span><br>
+
+<p>
+	Already Have An Account ? <a href="{{ url_for('login') }}">Login</a>
+</p>
+
+<script src="{{ url_for('static', filename='register_verification.js') }}" type="text/javascript" charset="utf-8">
+</script>
+
+{% endblock content %}

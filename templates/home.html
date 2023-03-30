@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>
+	home kosai there
+</h1>
+
+{% for post in posts %}
+	<h1> {{ post.title }} </h1>
+	<span> By {{ post.author }} on {{ post.date_posted }} </span>
+	<h3> {{ post.content }} </h3>
+{% endfor %}
+
+{% endblock content %}

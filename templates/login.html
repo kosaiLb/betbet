@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>
+	Login page
+</h1>
+
+<form method="post">
+
+	<input type="text" name="log_email" id="log_email" placeholder="Email" /><br>
+	<input type="password" name="log_pass" id="log_pass" placeholder="Password" /><br>
+
+	<button id="log_btn">Login</button><br>
+	<span id="all_log_note"></span><br>
+</form>
+
+
+<p>
+	<a href="{{ url_for('register') }}">forget password</a>
+</p>
+
+<script type="text/javascript" charset="utf-8">
+	let browser_log_hash = sessionStorage.getItem("log_hash");
+	console.log(browser_log_hash)
+	$.post(
+		"http://127.0.0.1:5000/login",
+		{ "browser_log_hash" : browser_log_hash },
+		function(result) {
+			if (result.status) {
+				window.location.replace("http://localhost:5000/dash");
+			}
+		}
+	);
+</script>
+
+<script src="{{ url_for('static', filename='login_verification.js') }}" type="text/javascript" charset="utf-8">
+</script>
+
+{% endblock content %}
